@@ -1,6 +1,7 @@
 Flask==0.10.1
 Jinja2==2.7.2
 MarkupSafe==0.23
+PyYAML==3.11
 TwitterSearch==0.78.4
 Werkzeug==0.9.4
 argparse==1.2.1
@@ -10,7 +11,11 @@ gunicorn==18.0
 ipython==2.0.0
 itsdangerous==0.24
 mock==1.0.1
+nltk==2.0.4
+numpy==1.8.1
 oauthlib==0.6.1
 requests==2.3.0
 requests-oauthlib==0.4.0
+sentiment-classifier==0.5
+textblob==0.8.4
 wsgiref==0.1.2
