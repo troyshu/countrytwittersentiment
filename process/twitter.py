@@ -7,8 +7,8 @@ class TwitterSearcher:
     try:
         self.tso = TwitterSearchOrder() # create a TwitterSearchOrder object
         self.tso.setKeywords(['Ukraine']) # let's define all words we would like to have a look for
-        self.tso.setLanguage('en') # we want to see German tweets only
-        self.tso.setCount(7) # please dear Mr Twitter, only give us 7 results per page
+        self.tso.setLanguage('en')
+        self.tso.setCount(100) # please dear Mr Twitter, only give us 7 results per page
         self.tso.setIncludeEntities(False) # and don't give us all those entity information
 
         # it's about time to create a TwitterSearch object with our secret tokens
@@ -18,10 +18,14 @@ class TwitterSearcher:
             access_token = '12981092-z3ZP0PlQj42h9tZk2UUdtDmUqh5iNZsC9uQWfkOah',
             access_token_secret = 'd5wjPYGvFTAsTGGwekcKpQCXi8uthmzdkI77CPEm2e3MW'
          )
+        
 
     except TwitterSearchException as e: # take care of all those ugly errors if there are some
         print(e)
-
+        
+  def getMetadata(self):
+    return self.metadata
+  
   def search(self, keyword, maxCount = 1000):
     tweets = []
     count = 0
@@ -36,4 +40,5 @@ class TwitterSearcher:
     except TwitterSearchException as e:
       print(e)
       
+    self.metadata = self.ts.getMetadata()
     return tweets
